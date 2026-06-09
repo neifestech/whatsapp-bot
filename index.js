@@ -117,9 +117,12 @@ client.on('message', async (message) => {
     if (history.length > MAX_HISTORY) history.splice(0, history.length - MAX_HISTORY);
 
     const geminiChat = model.startChat({
-      history: history.slice(0, -1),
-      systemInstruction: SYSTEM_PROMPT,
-    });
+  history: history.slice(0, -1),
+  systemInstruction: {
+    role: 'user',
+    parts: [{ text: SYSTEM_PROMPT }]
+  },
+});
 
     const result = await geminiChat.sendMessage(userText);
     const responseText = result.response.text();
