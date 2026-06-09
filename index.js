@@ -44,7 +44,7 @@ app.listen(PORT, () => console.log(`🌐 Веб-сервер запущен на
 
 // ─── Gemini ────────────────────────────────────────────────────────────────
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite' });
 
 const chatHistories = new Map();
 const MAX_HISTORY = 20;
