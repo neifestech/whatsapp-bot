@@ -2,8 +2,10 @@ services:
   - type: web
     name: whatsapp-bot
     runtime: node
-    buildCommand: npm install && node -e "const puppeteer = require('puppeteer'); puppeteer.executablePath() && console.log('ok')" || npx puppeteer browsers install chrome
+    buildCommand: npm install && PUPPETEER_CACHE_DIR=/opt/render/project/src/.chrome npx puppeteer browsers install chrome
     startCommand: npm start
     envVars:
       - key: GEMINI_API_KEY
         sync: false
+      - key: PUPPETEER_CACHE_DIR
+        value: /opt/render/project/src/.chrome
