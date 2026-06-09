@@ -61,6 +61,7 @@ const SYSTEM_PROMPT = `Ты — виртуальный консультант п
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable',
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -72,7 +73,6 @@ const client = new Client({
     ],
   },
 });
-
 client.on('qr', (qr) => {
   currentQR = qr;
   isReady = false;
