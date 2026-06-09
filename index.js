@@ -58,12 +58,10 @@ const SYSTEM_PROMPT = `Ты — виртуальный консультант п
 Не используй Markdown-разметку.`;
 
 // ─── WhatsApp ──────────────────────────────────────────────────────────────
-const puppeteer = require('puppeteer');
-
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
-    executablePath: puppeteer.executablePath(),
+    cacheDirectory: '/opt/render/project/src/.chrome',
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
