@@ -61,7 +61,6 @@ const SYSTEM_PROMPT = `Ты — виртуальный консультант п
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
-    cacheDirectory: '/opt/render/project/src/.chrome',
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
