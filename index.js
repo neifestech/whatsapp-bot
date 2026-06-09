@@ -58,10 +58,12 @@ const SYSTEM_PROMPT = `Ты — виртуальный консультант п
 Не используй Markdown-разметку.`;
 
 // ─── WhatsApp ──────────────────────────────────────────────────────────────
+const puppeteer = require('puppeteer');
+
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable',
+    executablePath: puppeteer.executablePath(),
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -73,6 +75,7 @@ const client = new Client({
     ],
   },
 });
+
 client.on('qr', (qr) => {
   currentQR = qr;
   isReady = false;
