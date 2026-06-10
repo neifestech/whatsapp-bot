@@ -44,7 +44,7 @@ server = app.listen(PORT, () => console.log(`Веб-сервер запущен 
 // ─── OpenRouter AI ───────────────────────────────────────────────────────────
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-const AI_MODEL = 'google/gemini-2.0-flash-exp:free';
+const AI_MODEL = 'google/gemini-2.5-flash-lite';
 
 async function askAI(messages) {
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
